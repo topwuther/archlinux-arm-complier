@@ -4,6 +4,8 @@ pkgrel=1
 pkgdesc="Arm Complier 5."
 arch=('x86_64')
 license=('custom')
+makedepends=('zip')
+depends=('arm-development-studio')
 source=(
 	"DS500-PA-00003-r5p0-26rel0.tgz"
 	"patcher"
@@ -16,7 +18,7 @@ prepare() {
 package() {
 	#install
 	cd "DS500-PA-00003-r5p0-26rel0/Installer/"
-	./setup.sh* --i-agree-to-the-contained-eula -f -d "${pkgdir}/usr/local/ARM_Compiler_${pkgver}"
+	./setup.sh --i-agree-to-the-contained-eula -f -d "${pkgdir}/usr/local/ARM_Compiler_${pkgver}"
     cd ../..
 
 	#fix
